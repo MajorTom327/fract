@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/09 16:40:24 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/09 17:05:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 # define W_WID 512
 # define W_HEI 512
 
-typedef struct	img
+typedef struct	s_img
 {
-	void	*img;
-	char	*data;
-	int		bpp;
-	int		sl;
-	int		end;
-	int		x;
-	int		y;
-}
+	void		*img;
+	char		*data;
+	int			bpp;
+	int			sl;
+	int			end;
+	int			x;
+	int			y;
+}				t_img;
 
 typedef struct	s_data
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
+	void		*mlx;
+	void		*win;
+	void		*img;
 }				t_data;
 
 void	usage(void);
