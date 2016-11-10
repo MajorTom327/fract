@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel.c                                           :+:      :+:    :+:   */
+/*   img_put_px.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 15:27:13 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/10 17:24:10 by vthomas          ###   ########.fr       */
+/*   Created: 2016/11/10 16:51:55 by vthomas           #+#    #+#             */
+/*   Updated: 2016/11/10 17:32:07 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
-#include <libft.h>
-#include <mlx.h>
 
-int	mandel(void)
+void	img_put_px(t_img *img, unsigned long c, t_v2 p)
 {
-	t_data	*d;
+	int pos;
 
-	d = init();
-	d->fract = (t_fract *)ft_memalloc(sizeof(t_fract));
-	d->fract->x1 = -2.1;
-	d->fract->x2 = 0.6;
-	d->fract->y1 = -1.2;
-	d->fract->y2 = 1.2;
-	d->fract->ite = 50;
-	mlx_expose_hook(d->win, &exp_mandel, (void *)d);
-	mlx_loop(d->mlx);
-	return (0);
+	if (p.x < 0 || p.x > W_WID || p.y > W_HEI || p.y < 0)
+		return ;
+	pos = p.y * img->sl + p.x * img->bpp / 8;
+	img->data[pos] = (c & 0x0000FF);
+	img->data[pos + 1] = (c & 0x00FF00) >> 8;
+	img->data[pos + 2] = (c & 0xFF0000) >> 16;
 }

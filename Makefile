@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/09 15:42:04 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/10 16:56:12 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,13 @@ NAME=fractol
 CC = clang
 CFLAGS = -Wall -Wextra -g
 
-DBG_OUT = /dev/ttys003
+DBG_OUT = /dev/ttys001
 
 SRC_NAME = main.c\
+		   draw/img_put_px.c\
 		   draw/mandel.c\
+		   draw/mandel/expose.c\
+		   draw/mandel/calculate.c\
 		   init.c\
 		   usage.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -25,7 +28,8 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 
-OBJ_SUB = draw
+OBJ_SUB = draw\
+		  draw/mandel
 
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))
