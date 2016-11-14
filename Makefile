@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/14 15:19:04 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/14 16:12:22 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ DBG_OUT = /dev/ttys001
 SRC_NAME = main.c\
 		   draw/other/img_put_px.c\
 		   draw/other/color_rainbow.c\
+		   draw/other/zoom.c\
 		   draw/mandel.c\
 		   draw/mandel/expose.c\
 		   draw/mandel/calculate.c\
@@ -31,6 +32,7 @@ SRC_NAME = main.c\
 		   draw/ship.c\
 		   draw/ship/expose.c\
 		   draw/ship/calculate.c\
+		   event.c\
 		   init.c\
 		   usage.c
 OBJ_NAME = $(SRC_NAME:.c=.o)

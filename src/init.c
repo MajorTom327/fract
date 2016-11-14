@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:49:05 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 16:06:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_data	*init(void)
 	&(img->end));
 	d->img = img;
 	mlx_hook(d->win, 17, (1L << 17), &exit_fractol, NULL);
-	mlx_key_hook(d->win, &event, NULL);
+	mlx_key_hook(d->win, &event, (void *)d);
 	return (d);
 }
 
@@ -47,8 +47,15 @@ int		exit_fractol(void *param)
 
 int		event(int keycode, void *param)
 {
-	(void)param;
+	t_data	*d;
+
+	d = (t_data *)param;
 	if (keycode == 53)
 		exit_fractol(NULL);
+	else if (keycode == 49)
+	{
+		d->fract->motion = !d->fract->motion;
+		ft_putendl(d->fract->motion ? "Motion activated" : "Motion disabled");
+	}
 	ft_putnbr_desc("key pressed:\t", keycode);
 }

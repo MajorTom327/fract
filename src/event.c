@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandel.c                                           :+:      :+:    :+:   */
+/*   event.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 15:27:13 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 16:07:33 by vthomas          ###   ########.fr       */
+/*   Created: 2016/11/14 16:09:42 by vthomas           #+#    #+#             */
+/*   Updated: 2016/11/14 16:18:15 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <libft.h>
-#include <mlx.h>
 
-int	mandel(void)
+int		mouse_motion(int x, int y, void *p)
 {
 	t_data	*d;
+	t_fract	*f;
 
-	d = init();
-	d->fract = (t_fract *)ft_memalloc(sizeof(t_fract));
-	d->fract->x1 = -2.1;
-	d->fract->x2 = 0.6;
-	d->fract->y1 = -1.2;
-	d->fract->y2 = 1.2;
-	d->fract->ite = 50;
-	d->fract->motion = 0;
-	mlx_expose_hook(d->win, &exp_mandel, (void *)d);
-	mlx_mouse_hook(d->win, &hook_mouse, (void *)d);
-	mlx_loop(d->mlx);
+	d = (t_data *)p;
+	if (!d->fract->motion)
+		return (0);
+	ft_putendl("MOTION EVENT !!");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 15:17:52 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 16:12:01 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct	s_fract
 	float	y2;
 	t_v2f	zoom;
 	int		ite;
+	int		motion;
 }				t_fract;
 
 typedef struct	s_data
@@ -62,6 +63,8 @@ void			usage(void);
 t_data			*init(void);
 int				exit_fractol(void *param);
 int				event(int keycode, void *param);
+int				hook_mouse(int btn, int x, int y, void *p);
+int				mouse_motion(int x, int y, void *p);
 
 int				mandel(void);
 int				exp_mandel(void *param);
