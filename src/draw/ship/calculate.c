@@ -6,13 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 15:09:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 21:36:30 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <libft.h>
 #include <mlx.h>
+#include <math.h>
 
 static float	sf_locksave(float v, int st)
 {

@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/14 17:29:43 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/14 20:51:07 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ OBJ_SUB = draw\
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
-LIB = -L ./libft -lft -lmlx
+LIB = -L ./libft -lft -lmlx -lpthread
 INC = -I ./include -I ./libft
 FMW = -framework OpenGl -framework AppKit
 

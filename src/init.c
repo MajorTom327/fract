@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 16:06:58 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 21:38:27 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ int		event(int keycode, void *param)
 		ft_putendl(d->fract->motion ? "Motion activated" : "Motion disabled");
 	}
 	ft_putnbr_desc("key pressed:\t", keycode);
+	return (0);
 }

@@ -6,14 +6,17 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 17:12:35 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 23:25:17 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define W_WID 1024
-# define W_HEI 1024
+# define W_WID	1024
+# define W_HEI	1024
+# define NBTH	2
+
+# include <pthread.h>
 
 typedef struct	s_v2
 {
@@ -39,15 +42,15 @@ typedef struct	s_img
 
 typedef struct	s_fract
 {
-	float	x1;
-	float	x2;
-	float	y1;
-	float	y2;
-	float	c_r;
-	float	c_i;
-	t_v2f	zoom;
-	int		ite;
-	int		motion;
+	float		x1;
+	float		x2;
+	float		y1;
+	float		y2;
+	float		c_r;
+	float		c_i;
+	t_v2f		zoom;
+	int			ite;
+	int			motion;
 }				t_fract;
 
 typedef struct	s_data
@@ -57,6 +60,14 @@ typedef struct	s_data
 	t_img		*img;
 	t_fract		*fract;
 }				t_data;
+
+typedef struct	s_thread
+{
+	int			id;
+	t_data		*d;
+	pthread_t	thd;
+	int			c;
+}				t_thread;
 
 void			img_put_px(t_img *img, unsigned long c, t_v2 p);
 int				rainbow(int i, int it);
@@ -74,7 +85,8 @@ void			mandelcalculate(t_data *d);
 
 int				julia(void);
 int				exp_julia(void *param);
-void			juliacalculate(t_data *d);
+void			juliacalculate(t_data *d, int bg, const int xmin, const int xmax);
+void			*juliath(void *p);
 
 int				fish(void);
 int				exp_fish(void *param);

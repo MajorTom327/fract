@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:35:27 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 17:13:51 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 22:13:37 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	julia(void)
 	d->fract->x2 = 1;
 	d->fract->y1 = -1.2;
 	d->fract->y2 = 1.2;
-	d->fract->ite = 50;
+	d->fract->ite = 20;
 	d->fract->motion = 1;
 	d->fract->c_r = 0.285;
 	d->fract->c_i = 0.01;
