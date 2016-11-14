@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/14 16:12:22 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/14 17:29:43 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,5 +91,5 @@ re: fclean all
 test: all
 	@clear
 	@clear > $(DBG_OUT)
-	./$(NAME) mandelbrot 2> $(DBG_OUT)
+	./$(NAME) julia 2> $(DBG_OUT)
 .PHONY: fclean clean

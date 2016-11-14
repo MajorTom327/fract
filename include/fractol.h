@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 16:12:01 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 17:12:35 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct	s_fract
 	float	x2;
 	float	y1;
 	float	y2;
+	float	c_r;
+	float	c_i;
 	t_v2f	zoom;
 	int		ite;
 	int		motion;
