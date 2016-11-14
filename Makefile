@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/14 14:37:56 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/14 15:07:04 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,9 @@ SRC_NAME = main.c\
 		   draw/fish.c\
 		   draw/fish/expose.c\
 		   draw/fish/calculate.c\
+		   draw/ship.c\
+		   draw/ship/expose.c\
+		   draw/ship/calculate.c\
 		   init.c\
 		   usage.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -34,7 +37,8 @@ OBJ_PATH = ./obj/
 
 OBJ_SUB = draw\
 		  draw/mandel\
-		  draw/fish
+		  draw/fish\
+		  draw/ship
 
 SRC=$(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ=$(addprefix $(OBJ_PATH),$(OBJ_NAME))

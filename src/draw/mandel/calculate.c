@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:50:05 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 15:02:55 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static int		sf_mandelpart(t_fract *f, t_v2 pos)
 	while (((z_r * z_r) + (z_i * z_i)) < 4 && i < f->ite)
 	{
 		sf_locksave(z_r, 1);
-		tmp = z_r;
 		z_r = z_r * z_r - z_i * z_i + c_r;
 		z_i = 2 * z_i * sf_locksave(0.0, 0) + c_i;
 		i++;

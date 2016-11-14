@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   expose.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/09 14:43:26 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 15:07:22 by vthomas          ###   ########.fr       */
+/*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
+/*   Updated: 2016/11/14 15:05:28 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
 #include <fractol.h>
+#include <mlx.h>
+#include <stdlib.h>
 
-int	main(int ac, char **av)
+int	exp_ship(void *param)
 {
-	if (ac != 2)
-	{
-		usage();
-		return (0);
-	}
-	if (ft_strcmp(av[1], "mandelbrot") == 0)
-		mandel();
-	else if (ft_strcmp(av[1], "julia") == 0)
-		ft_putendl("let's work on julia !");
-	else if (ft_strcmp(av[1], "ship") == 0)
-		ship();
-	else if (ft_strcmp(av[1], "fish") == 0)
-		fish();
-	else
-		usage();
+	t_data	*d;
+
+	d = (t_data *)param;
+	ft_putendl("Calculate started...");
+	ft_putnbr_desc("WIDTH:\t", W_WID);
+	ft_putnbr_desc("HEIGHT:\t", W_HEI);
+	shipcalculate(d);
+	ft_putendl("Calculate finished !");
+	mlx_put_image_to_window(d->mlx, d->win, d->img->img, 0, 0);
 	return (0);
 }

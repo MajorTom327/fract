@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:55:49 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 15:07:44 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,8 @@ void			mandelcalculate(t_data *d);
 int				fish(void);
 int				exp_fish(void *param);
 void			fishcalculate(t_data *d);
+
+int				ship();
+int				exp_ship(void *param);
+void			shipcalculate(t_data *d);
 #endif
