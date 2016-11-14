@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 02:12:52 by vthomas           #+#    #+#             */
-/*   Updated: 2016/10/27 16:09:32 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:51:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*tmp;
 
 	if (n == 0)

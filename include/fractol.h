@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:37:43 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:55:49 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,19 @@ typedef struct	s_data
 	t_fract		*fract;
 }				t_data;
 
-void	img_put_px(t_img *img, unsigned long c, t_v2 p);
-int		rainbow(int i, int it);
+void			img_put_px(t_img *img, unsigned long c, t_v2 p);
+int				rainbow(int i, int it);
 
-void	usage(void);
-t_data	*init(void);
-int		exit_fractol(void *param);
-int		event(int keycode, void *param);
+void			usage(void);
+t_data			*init(void);
+int				exit_fractol(void *param);
+int				event(int keycode, void *param);
 
-int		mandel(void);
-int		exp_mandel(void *param);
-void	mandelcalculate(t_data *d);
+int				mandel(void);
+int				exp_mandel(void *param);
+void			mandelcalculate(t_data *d);
 
-int		fish(void);
-int		exp_fish(void *param);
-void	fishcalculate(t_data *d);
+int				fish(void);
+int				exp_fish(void *param);
+void			fishcalculate(t_data *d);
 #endif

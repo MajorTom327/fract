@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   usage.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vthomas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:10:51 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/09 15:25:48 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:41:13 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	usage(void)
 	ft_putendl("Where fractal is one of this list:\n"\
 			"\t- mandelbrot\n"\
 			"\t- julia\n"\
-			"\t- ship");
+			"\t- ship\n"\
+			"\t- fish");
 }

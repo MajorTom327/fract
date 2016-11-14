@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:38:18 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:50:19 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,13 @@ static float	sf_locksave(float v, int st)
 	return (value);
 }
 
-static int	sf_fishpart(t_fract *f, t_v2 pos)
+static int		sf_fishpart(t_fract *f, t_v2 pos)
 {
 	float	c_r;
 	float	c_i;
 	float	z_r;
 	float	z_i;
-	float	tmp;
-	int	i;
+	int		i;
 
 	i = 0;
 	c_r = pos.x / f->zoom.x + f->x1;
@@ -48,7 +47,7 @@ static int	sf_fishpart(t_fract *f, t_v2 pos)
 	return (i);
 }
 
-void	fishcalculate(t_data *d)
+void			fishcalculate(t_data *d)
 {
 	t_v2	pos;
 	int		ret;
