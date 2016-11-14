@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 15:07:44 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 15:17:52 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ int				event(int keycode, void *param);
 int				mandel(void);
 int				exp_mandel(void *param);
 void			mandelcalculate(t_data *d);
+
+int				julia(void);
+int				exp_julia(void *param);
+void			juliacalculate(t_data *d);
 
 int				fish(void);
 int				exp_fish(void *param);

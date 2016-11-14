@@ -6,7 +6,7 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/14 15:07:04 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/14 15:19:04 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,14 @@ CFLAGS = -Wall -Wextra -g
 DBG_OUT = /dev/ttys001
 
 SRC_NAME = main.c\
-		   draw/img_put_px.c\
-		   draw/color_rainbow.c\
+		   draw/other/img_put_px.c\
+		   draw/other/color_rainbow.c\
 		   draw/mandel.c\
 		   draw/mandel/expose.c\
 		   draw/mandel/calculate.c\
+		   draw/julia.c\
+		   draw/julia/expose.c\
+		   draw/julia/calculate.c\
 		   draw/fish.c\
 		   draw/fish/expose.c\
 		   draw/fish/calculate.c\
@@ -36,7 +39,9 @@ SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 
 OBJ_SUB = draw\
+		  draw/other\
 		  draw/mandel\
+		  draw/julia\
 		  draw/fish\
 		  draw/ship
 
