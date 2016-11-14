@@ -6,20 +6,26 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/10 17:26:35 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:37:43 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define W_WID 767
-# define W_HEI 767
+# define W_WID 1024
+# define W_HEI 1024
 
 typedef struct	s_v2
 {
 	int			x;
 	int			y;
 }				t_v2;
+
+typedef struct	s_v2f
+{
+	float			x;
+	float			y;
+}				t_v2f;
 
 typedef struct	s_img
 {
@@ -33,11 +39,11 @@ typedef struct	s_img
 
 typedef struct	s_fract
 {
-	double	x1;
-	double	x2;
-	double	y1;
-	double	y2;
-	t_v2	zoom;
+	float	x1;
+	float	x2;
+	float	y1;
+	float	y2;
+	t_v2f	zoom;
 	int		ite;
 }				t_fract;
 
@@ -50,6 +56,7 @@ typedef struct	s_data
 }				t_data;
 
 void	img_put_px(t_img *img, unsigned long c, t_v2 p);
+int		rainbow(int i, int it);
 
 void	usage(void);
 t_data	*init(void);
@@ -57,6 +64,10 @@ int		exit_fractol(void *param);
 int		event(int keycode, void *param);
 
 int		mandel(void);
+int		exp_mandel(void *param);
+void	mandelcalculate(t_data *d);
 
-int	exp_mandel(void *param);
+int		fish(void);
+int		exp_fish(void *param);
+void	fishcalculate(t_data *d);
 #endif

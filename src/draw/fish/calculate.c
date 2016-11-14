@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:32:58 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:38:18 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static float	sf_locksave(float v, int st)
 	return (value);
 }
 
-static int	sf_mandelpart(t_fract *f, t_v2 pos)
+static int	sf_fishpart(t_fract *f, t_v2 pos)
 {
 	float	c_r;
 	float	c_i;
@@ -41,14 +41,14 @@ static int	sf_mandelpart(t_fract *f, t_v2 pos)
 	{
 		sf_locksave(z_r, 1);
 		tmp = z_r;
-		z_r = z_r * z_r - z_i * z_i + c_r;
+		z_r = fabs(z_r * z_r - z_i * z_i) + c_r;
 		z_i = 2 * z_i * sf_locksave(0.0, 0) + c_i;
 		i++;
 	}
 	return (i);
 }
 
-void	mandelcalculate(t_data *d)
+void	fishcalculate(t_data *d)
 {
 	t_v2	pos;
 	int		ret;
@@ -61,7 +61,7 @@ void	mandelcalculate(t_data *d)
 		pos.x = 0;
 		while (pos.x < W_WID)
 		{
-			ret = sf_mandelpart(d->fract, pos);
+			ret = sf_fishpart(d->fract, pos);
 			if (ret != d->fract->ite)
 				img_put_px(d->img, rainbow(ret, d->fract->ite), pos);
 			pos.x++;

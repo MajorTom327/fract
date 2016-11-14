@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 14:43:26 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/09 15:39:09 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/14 14:39:39 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int ac, char **av)
 		ft_putendl("let's work on julia !");
 	else if (ft_strcmp(av[1], "ship") == 0)
 		ft_putendl("let's work on ship !");
+	else if (ft_strcmp(av[1], "fish") == 0)
+		fish();
 	else
 		usage();
 	return (0);

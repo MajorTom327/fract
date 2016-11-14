@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expose.c                                           :+:      :+:    :+:   */
+/*   fish.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 14:39:09 by vthomas          ###   ########.fr       */
+/*   Created: 2016/11/14 14:35:27 by vthomas           #+#    #+#             */
+/*   Updated: 2016/11/14 14:35:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
+#include <libft.h>
 #include <mlx.h>
-#include <stdlib.h>
 
-int	exp_mandel(void *param)
+int	fish(void)
 {
 	t_data	*d;
 
-	d = (t_data *)param;
-	ft_putendl("Calculate started...");
-	ft_putnbr_desc("WIDTH:\t", W_WID);
-	ft_putnbr_desc("HEIGHT:\t", W_HEI);
-	mandelcalculate(d);
-	ft_putendl("Calculate finished !");
-	mlx_put_image_to_window(d->mlx, d->win, d->img->img, 0, 0);
+	d = init();
+	d->fract = (t_fract *)ft_memalloc(sizeof(t_fract));
+	d->fract->x1 = -2.1;
+	d->fract->x2 = 0.6;
+	d->fract->y1 = -1.2;
+	d->fract->y2 = 1.2;
+	d->fract->ite = 50;
+	mlx_expose_hook(d->win, &exp_fish, (void *)d);
+	mlx_loop(d->mlx);
 	return (0);
 }
