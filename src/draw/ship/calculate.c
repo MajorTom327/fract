@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:11:37 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 20:34:59 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 #include <libft.h>
 #include <mlx.h>
 #include <math.h>
-
-static float	sf_locksave(float v, int st)
-{
-	static float	value = 0.0;
-
-	if (st)
-		value = v;
-	return (value);
-}
 
 static int		sf_shippart(t_fract *f, t_v2 pos)
 {

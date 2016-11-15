@@ -6,22 +6,13 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:22:47 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 20:35:12 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <libft.h>
 #include <mlx.h>
-
-static float	sf_locksave(float v, int st)
-{
-	static float	value = 0.0;
-
-	if (st)
-		value = v;
-	return (value);
-}
 
 static int		sf_juliapart(t_fract *f, t_v2 pos)
 {

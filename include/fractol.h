@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:23:38 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 20:34:11 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define W_WID	1024
 # define W_HEI	1024
 # define NBTH	8
-
+# define TH_C	0x000000
 # include <pthread.h>
 
 typedef struct	s_v2
@@ -88,8 +88,9 @@ int				hook_mouse(int btn, int x, int y, void *p);
 int				mouse_motion(int x, int y, void *p);
 
 int				mandel(void);
+void			*mandelth(void *p);
 int				exp_mandel(void *param);
-void			mandelcalculate(t_data *d);
+void			mandelcalculate(t_data *d, int bg, int xmin, int xmax);
 
 int				julia(void);
 void			*juliath(void *p);

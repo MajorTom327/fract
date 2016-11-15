@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:15:36 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 20:33:02 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	exp_julia(void *param)
 	{
 		t[i].id = i;
 		t[i].d = d;
-		t[i].c = 0x222222 * i;
+		t[i].c = TH_C * i;
 		pthread_create(&(t[i].thd), NULL, &juliath, (void *)&t[i]);
 		i++;
 	}

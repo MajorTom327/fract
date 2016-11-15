@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:23:19 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 20:34:41 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,6 @@
 #include <libft.h>
 #include <mlx.h>
 #include <math.h>
-
-static float	sf_locksave(float v, int st)
-{
-	static float	value = 0.0;
-
-	if (st)
-		value = v;
-	return (value);
-}
 
 static int		sf_fishpart(t_fract *f, t_v2 pos)
 {
@@ -78,7 +69,7 @@ void			*fishth(void *p)
 	int			xmax;
 
 	t = (t_thread *)p;
-	xmin = W_WID / NBTH * t->id;//ID EST APPARAMENT INVALIDE DES FOIS
+	xmin = W_WID / NBTH * t->id;
 	xmax = W_WID / NBTH * (t->id + 1);
 	fishcalculate(t->d, t->c, xmin, xmax);
 	pthread_exit(NULL);
