@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:27:13 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 16:07:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 21:34:36 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	mandel(void)
 	d->fract->ite = 50;
 	d->fract->motion = 0;
 	mlx_expose_hook(d->win, &exp_mandel, (void *)d);
+	d->draw = &exp_mandel;
 	mlx_mouse_hook(d->win, &hook_mouse, (void *)d);
 	mlx_loop(d->mlx);
 	return (0);
