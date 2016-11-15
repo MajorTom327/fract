@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/14 23:25:17 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/15 20:23:38 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 # define W_WID	1024
 # define W_HEI	1024
-# define NBTH	2
+# define NBTH	8
 
 # include <pthread.h>
 
@@ -69,6 +69,14 @@ typedef struct	s_thread
 	int			c;
 }				t_thread;
 
+typedef struct	s_cmplx
+{
+	float		c_r;
+	float		c_i;
+	float		z_r;
+	float		z_i;
+}				t_cmplx;
+
 void			img_put_px(t_img *img, unsigned long c, t_v2 p);
 int				rainbow(int i, int it);
 
@@ -84,15 +92,17 @@ int				exp_mandel(void *param);
 void			mandelcalculate(t_data *d);
 
 int				julia(void);
-int				exp_julia(void *param);
-void			juliacalculate(t_data *d, int bg, const int xmin, const int xmax);
 void			*juliath(void *p);
+int				exp_julia(void *param);
+void			juliacalculate(t_data *d, int bg, int xmin, int xmax);
 
 int				fish(void);
+void			*fishth(void *p);
 int				exp_fish(void *param);
-void			fishcalculate(t_data *d);
+void			fishcalculate(t_data *d, int bg, int xmin, int xmax);
 
 int				ship();
+void			*shipth(void *p);
 int				exp_ship(void *param);
-void			shipcalculate(t_data *d);
+void			shipcalculate(t_data *d, int bg, int xmin, int xmax);
 #endif
