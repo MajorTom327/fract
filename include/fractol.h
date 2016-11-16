@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 00:00:47 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 02:47:49 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct	s_data
 	t_fract		*fract;
 	void		*(*draw)(void *);
 	float		zoom;
+	t_v2		pos;
 }				t_data;
 
 typedef struct	s_thread

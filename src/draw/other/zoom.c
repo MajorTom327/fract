@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 15:57:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 02:45:17 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 03:30:35 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	hook_mouse(int btn, int x, int y, void *p)
 	}
 	if (btn == 4 || btn == 5)
 	{
-		d->fract->x1 = d->zoom * -1.0;
-		d->fract->x2 = d->zoom * 1.0;
-		d->fract->y1 = d->zoom * -1.2;
-		d->fract->y2 = d->zoom * 1.2;
+		d->fract->x1 = d->zoom * -1.0 + ((float)d->pos.x / 100);
+		d->fract->x2 = d->zoom * 1.0 + ((float)d->pos.x / 100);
+		d->fract->y1 = d->zoom * -1.2 + ((float)d->pos.y / 100);
+		d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y / 100);
 		d->draw(p);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 00:08:56 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 03:34:07 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_data	*init(void)
 	d->img = img;
 	mlx_hook(d->win, 17, (1L << 17), &exit_fractol, NULL);
 	mlx_key_hook(d->win, &event, (void *)d);
-	d->zoom = 0.5;
+	d->zoom = 2.0;
 	return (d);
 }
 
@@ -54,9 +54,22 @@ int		event(int keycode, void *param)
 	if (keycode == 53)
 		exit_fractol(NULL);
 	else if (keycode == 49)
-	{
 		d->fract->motion = !d->fract->motion;
-		ft_putendl(d->fract->motion ? "Motion activated" : "Motion disabled");
+	else if (keycode == 123)
+		d->pos.x--;
+	else if (keycode == 124)
+		d->pos.x++;
+	else if (keycode == 125)
+		d->pos.y++;
+	else if (keycode == 126)
+		d->pos.y--;
+	if (keycode >= 123 && keycode <= 126)
+	{
+		d->fract->x1 = d->zoom * -1.0 + ((float)d->pos.x / 100);
+		d->fract->x2 = d->zoom * 1.0 + ((float)d->pos.x / 100);
+		d->fract->y1 = d->zoom * -1.2 + ((float)d->pos.y / 100);
+		d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y / 100);
+		d->draw(param);
 	}
 	ft_putnbr_desc("key pressed:\t", keycode);
 	return (0);
