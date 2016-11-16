@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:34:54 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 04:40:08 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void			mandelcalculate(t_data *d, int bg, int xmin, int xmax)
 		{
 			ret = sf_mandelpart(d->fract, pos);
 			if (ret != d->fract->ite)
-				img_put_px(d->img, rainbow(ret, d->fract->ite), pos);
+				img_put_px(d->img, rainbow(ret, d->fract->ite * d->zoom), pos);
 			else
 				img_put_px(d->img, bg, pos);
 			pos.x++;

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 03:34:07 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 04:33:52 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_data	*init(void)
 	d->img = img;
 	mlx_hook(d->win, 17, (1L << 17), &exit_fractol, NULL);
 	mlx_key_hook(d->win, &event, (void *)d);
+	d->pos.x = -96;
 	d->zoom = 2.0;
 	return (d);
 }

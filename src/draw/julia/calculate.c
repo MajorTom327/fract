@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:35:12 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 04:39:55 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			juliacalculate(t_data *d, int bg, int xmin, int xmax)
 		{
 			ret = sf_juliapart(d->fract, pos);//Partie calcule
 			if (ret != d->fract->ite)
-				img_put_px(d->img, rainbow(ret, d->fract->ite), pos);
+				img_put_px(d->img, rainbow(ret, d->fract->ite * d->zoom), pos);
 			else
 				img_put_px(d->img, bg, pos);
 			pos.x++;
@@ -65,7 +65,7 @@ void			*juliath(void *p)
 	int			xmax;
 
 	t = (t_thread *)p;
-	xmin = W_WID / NBTH * t->id;//ID EST APPARAMENT INVALIDE DES FOIS
+	xmin = W_WID / NBTH * t->id;
 	xmax = W_WID / NBTH * (t->id + 1);
 	juliacalculate(t->d, t->c, xmin, xmax);
 	pthread_exit(NULL);
