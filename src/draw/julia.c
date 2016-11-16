@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:35:27 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 21:30:21 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/16 02:25:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	julia(void)
 
 	d = init();
 	d->fract = (t_fract *)ft_memalloc(sizeof(t_fract));
-	d->fract->x1 = -1;
-	d->fract->x2 = 1;
+	d->fract->x1 = -1.0;
+	d->fract->x2 = 1.0;
 	d->fract->y1 = -1.2;
 	d->fract->y2 = 1.2;
 	d->fract->ite = 50;
