@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 03:58:48 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 06:05:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct	s_fract
 	double		c_r;
 	double		c_i;
 	t_v2f		zoom;
-	int			ite;
+	double		ite;
 	int			motion;
 }				t_fract;
 
@@ -59,7 +59,7 @@ typedef struct	s_data
 	void		*win;
 	t_img		*img;
 	t_fract		*fract;
-	int			*(*draw)(void *);
+	int			(*draw)(void *);
 	float		zoom;
 	t_v2		pos;
 }				t_data;
@@ -93,6 +93,7 @@ void			line(t_v2 src, t_v2 dst, t_data *data, int c);
 int				event(int keycode, void *param);
 int				hook_mouse(int btn, int x, int y, void *p);
 int				mouse_motion(int x, int y, void *p);
+int				zoom(t_data *d, int st);
 
 int				mandel(void);
 void			*mandelth(void *p);

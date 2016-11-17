@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:43:50 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 03:14:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 06:12:58 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			juliacalculate(t_data *d, int bg, int xmin, int xmax)
 		{
 			ret = sf_juliapart(d->fract, pos);
 			if (ret != d->fract->ite)
-				img_put_px(d->img, rainbow(ret, d->fract->ite * d->zoom), pos);
+				img_put_px(d->img, rainbow(ret, (int)d->fract->ite), pos);
 			else
 				img_put_px(d->img, bg, pos);
 			pos.x++;
