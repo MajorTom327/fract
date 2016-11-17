@@ -6,19 +6,20 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 02:22:33 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 03:13:05 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <mlx.h>
 #include <stdlib.h>
+#include <pthread.h>
 
 int	exp_mandel(void *param)
 {
 	t_data		*d;
 	t_thread	t[NBTH];
-	int i;
+	int			i;
 
 	d = (t_data *)param;
 	i = 0;

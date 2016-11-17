@@ -6,13 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 00:15:22 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 03:07:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <mlx.h>
 #include <stdlib.h>
+#include <pthread.h>
 
 int	exp_fish(void *param)
 {

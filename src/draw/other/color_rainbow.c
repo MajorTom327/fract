@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/05 04:19:59 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 23:57:53 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 03:14:12 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int			rainbow(int i, int it)
 
 	t = (double)i / (double)(it % 1530);
 	i = (int)(t * 1530.0);
-	//i = i / it;
 	i = i % 1530;
 	return ((get_red(i) << 16) + (get_green(i) << 8) + (get_blue(i)));
 }

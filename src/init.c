@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 04:33:52 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 04:10:57 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_data	*init(void)
 	t_data	*d;
 	t_img	*img;
 
-	ft_putendl_fd("init", 2);
 	d = (t_data *)ft_memalloc(sizeof(t_data));
 	if (d == NULL)
 		exit(EXIT_FAILURE);
@@ -35,7 +34,7 @@ t_data	*init(void)
 	d->img = img;
 	mlx_hook(d->win, 17, (1L << 17), &exit_fractol, NULL);
 	mlx_key_hook(d->win, &event, (void *)d);
-	d->pos.x = -96;
+	d->pos.x = 0;
 	d->zoom = 2.0;
 	return (d);
 }
@@ -72,6 +71,5 @@ int		event(int keycode, void *param)
 		d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y / 100);
 		d->draw(param);
 	}
-	ft_putnbr_desc("key pressed:\t", keycode);
 	return (0);
 }

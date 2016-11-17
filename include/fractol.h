@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 01:08:43 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 03:58:48 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct	s_fract
 	double		c_r;
 	double		c_i;
 	t_v2f		zoom;
-	double			ite;
+	int			ite;
 	int			motion;
 }				t_fract;
 

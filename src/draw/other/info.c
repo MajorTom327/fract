@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/17 00:04:11 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 01:48:36 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 03:15:06 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	draw_sable(t_data *d, t_v2 pos)
 	dst.y += 9;
 	line(src, dst, d, 0x000000);
 	src.y += 8;
-	//dst.y++;
 	line(src, dst, d, 0x000000);
 	src.y--;
 	dst.y -= 9;
@@ -64,5 +63,6 @@ void		info_calculate(t_data *d)
 	start.x += 4;
 	start.y += 4;
 	draw_sable(d, start);
-	mlx_string_put(d->mlx, d->win, start.x + 16, start.y - 8, 0x000000, "Calculating...");
+	mlx_string_put(d->mlx, d->win, start.x + 16, start.y - 8, 0x000000,
+		"Calculating...");
 }

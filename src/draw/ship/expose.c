@@ -6,13 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 02:22:39 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 03:13:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <mlx.h>
 #include <stdlib.h>
+#include <pthread.h>
 
 int	exp_ship(void *param)
 {
@@ -36,7 +37,6 @@ int	exp_ship(void *param)
 		pthread_join(t[i].thd, NULL);
 		i--;
 	}
-	//shipcalculate(d);
 	mlx_put_image_to_window(d->mlx, d->win, d->img->img, 0, 0);
 	return (0);
 }
