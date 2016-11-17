@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 16:09:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 06:06:22 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 06:16:31 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int		zoom(t_data *d, int st)
 	if (st)
 	{
 		d->zoom /= 1.03;
-		if (d->fract->ite * 1.03 < 2147483647)
-			d->fract->ite *= 1.03;
+		if (d->fract->ite * 1.005 < 2147483647)
+			d->fract->ite *= 1.005;
 	}
 	else
 	{
 		d->zoom *= 1.03;
-		d->fract->ite /= 1.03;
+		d->fract->ite /= 1.005;
 		if (d->fract->ite < 10)
 			d->fract->ite = 11;
 	}
