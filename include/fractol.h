@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 02:47:49 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 01:08:43 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ typedef struct	s_img
 
 typedef struct	s_fract
 {
-	float		x1;
-	float		x2;
-	float		y1;
-	float		y2;
-	float		c_r;
-	float		c_i;
+	double		x1;
+	double		x2;
+	double		y1;
+	double		y2;
+	double		c_r;
+	double		c_i;
 	t_v2f		zoom;
-	int			ite;
+	double			ite;
 	int			motion;
 }				t_fract;
 
@@ -59,7 +59,7 @@ typedef struct	s_data
 	void		*win;
 	t_img		*img;
 	t_fract		*fract;
-	void		*(*draw)(void *);
+	int			*(*draw)(void *);
 	float		zoom;
 	t_v2		pos;
 }				t_data;
@@ -74,10 +74,10 @@ typedef struct	s_thread
 
 typedef struct	s_cmplx
 {
-	float		c_r;
-	float		c_i;
-	float		z_r;
-	float		z_i;
+	double		c_r;
+	double		c_i;
+	double		z_r;
+	double		z_i;
 }				t_cmplx;
 
 void			img_put_px(t_img *img, unsigned long c, t_v2 p);
@@ -86,6 +86,10 @@ int				rainbow(int i, int it);
 void			usage(void);
 t_data			*init(void);
 int				exit_fractol(void *param);
+
+void			info_calculate(t_data *d);
+void			line(t_v2 src, t_v2 dst, t_data *data, int c);
+
 int				event(int keycode, void *param);
 int				hook_mouse(int btn, int x, int y, void *p);
 int				mouse_motion(int x, int y, void *p);

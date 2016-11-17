@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:33:22 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 00:15:22 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	exp_fish(void *param)
 
 	d = (t_data *)param;
 	i = 0;
+	info_calculate(d);
 	while (i < NBTH)
 	{
 		t[i].id = i;
@@ -35,7 +36,6 @@ int	exp_fish(void *param)
 		pthread_join(t[i].thd, NULL);
 		i--;
 	}
-	//fishcalculate(d);
 	mlx_put_image_to_window(d->mlx, d->win, d->img->img, 0, 0);
 	return (0);
 }

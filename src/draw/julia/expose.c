@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/10 16:27:25 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/15 20:33:02 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 02:22:27 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	exp_julia(void *param)
 
 	d = (t_data *)param;
 	i = 0;
+	info_calculate(d);
 	while (i < NBTH)
 	{
 		t[i].id = i;

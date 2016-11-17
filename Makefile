@@ -6,18 +6,20 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/14 20:51:07 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/17 01:08:55 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fractol
 CC = clang
-CFLAGS = -Wall -Wextra -g
+CFLAGS = -Wall -Wextra -g -Os -Ofast
 
 DBG_OUT = /dev/ttys001
 
 SRC_NAME = main.c\
 		   draw/other/img_put_px.c\
+		   draw/other/info.c\
+		   draw/other/line.c\
 		   draw/other/color_rainbow.c\
 		   draw/other/zoom.c\
 		   draw/mandel.c\
@@ -91,5 +93,5 @@ re: fclean all
 test: all
 	@clear
 	@clear > $(DBG_OUT)
-	./$(NAME) julia 2> $(DBG_OUT)
+	./$(NAME) fish 2> $(DBG_OUT)
 .PHONY: fclean clean

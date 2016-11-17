@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:35:27 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/16 04:33:16 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/17 00:25:35 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	fish(void)
 	d->fract->x2 = d->zoom * 1.0 + ((float)d->pos.x / 100);
 	d->fract->y1 = d->zoom * -1.2 + ((float)d->pos.y / 100);
 	d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y / 100);
-	d->fract->ite = 50;
+	d->fract->ite = 20;
 	d->fract->motion = 0;
 	mlx_expose_hook(d->win, &exp_fish, (void *)d);
 	d->draw = &exp_fish;
