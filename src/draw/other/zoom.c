@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 15:57:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/18 03:16:55 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/18 05:19:49 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static void	recalculate_pos(t_data *d, int x, int y, int btn)
 	if (pos.y <= 1 && pos.y >= -1)
 		pos.y = 0;
 	d->pos.x += (btn == 4) ? pos.x : -pos.x;
-	d->pos.y += pos.y;
-	ft_putnbr_desc("pos.x:\t", d->pos.x);
-	ft_putnbr_desc("pos.y:\t", d->pos.y);
+	d->pos.y += (btn == 4) ? pos.y : -pos.y;
 }
 
 int			hook_mouse(int btn, int x, int y, void *p)
@@ -38,6 +36,8 @@ int			hook_mouse(int btn, int x, int y, void *p)
 	{
 		recalculate_pos(d, x, y, btn);
 		zoom(d, (btn == 4), 1);
+		zoom(d, (btn == 4), 1);
+		d->draw(p);
 	}
 	return (0);
 }

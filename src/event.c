@@ -6,14 +6,14 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 16:09:42 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/18 03:19:15 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/18 05:07:24 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fractol.h>
 #include <libft.h>
 
-int		mouse_motion(int x, int y, void *p)
+int			mouse_motion(int x, int y, void *p)
 {
 	t_data	*d;
 	t_fract	*f;
@@ -30,30 +30,41 @@ int		mouse_motion(int x, int y, void *p)
 	return (0);
 }
 
-int		zoom(t_data *d, int st, int t)
+static void	sf_unzoommax(t_data *d)
 {
-	float	factor;
-	float	ite;
+	if (d->fract->ite > 10000 || d->zoom <= 0.0000001)
+	{
+		ft_putendl("Zoom too deeper: nothing to see so reseted !");
+		d->fract->ite = 50;
+		d->zoom = 2.0;
+		d->pos.x = 0;
+		d->pos.y = 0;
+	}
+}
 
-	factor = (t) ? 1.3 : 1.03;
-	ite = (t) ? 1.01 : 1.005;
+int			zoom(t_data *d, int st, int t)
+{
 	if (st)
 	{
-		d->zoom /= factor;
-		if (d->fract->ite * ite < 2147483647)
-			d->fract->ite *= ite;
+		d->zoom /= ((t) ? 1.03 : 1.03);
+		if (d->fract->ite * ((t) ? 1.005 : 1.005) < 2147483647)
+			d->fract->ite *= ((t) ? 1.005 : 1.005);
 	}
 	else
 	{
-		d->zoom *= factor;
-		d->fract->ite /= ite;
+		d->zoom *= ((t) ? 1.03 : 1.03);
+		d->fract->ite /= ((t) ? 1.005 : 1.005);
 		if (d->fract->ite < 10)
 			d->fract->ite = 11;
 	}
-	d->fract->x1 = d->zoom * -1.0 + ((float)(d->pos.x / d->zoom) * (d->zoom / 10.0));
-	d->fract->x2 = d->zoom * 1.0 + ((float)(d->pos.x / d->zoom) * (d->zoom / 10.0));
-	d->fract->y1 = d->zoom * -1.2 + ((float)d->pos.y * (d->zoom / 10.0));
-	d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y * (d->zoom / 10.0));
-	d->draw((void *)d);
+	sf_unzoommax(d);
+	d->fract->x1 = d->zoom * -1.0 + ((float)(d->pos.x / d->zoom) *\
+	(d->zoom / 10.0));
+	d->fract->x2 = d->zoom * 1.0 + ((float)(d->pos.x / d->zoom) *\
+	(d->zoom / 10.0));
+	d->fract->y1 = d->zoom * -1.2 + ((float)(d->pos.y / d->zoom) *\
+	(d->zoom / 10.0));
+	d->fract->y2 = d->zoom * 1.2 + ((float)(d->pos.y / d->zoom) *\
+	(d->zoom / 10.0));
 	return (0);
 }

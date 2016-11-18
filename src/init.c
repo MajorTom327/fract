@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/18 03:17:03 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/18 05:39:43 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <mlx.h>
 #include <stdlib.h>
 
-t_data	*init(void)
+t_data		*init(void)
 {
 	t_data	*d;
 	t_img	*img;
@@ -39,7 +39,7 @@ t_data	*init(void)
 	return (d);
 }
 
-int		exit_fractol(void *param)
+int			exit_fractol(void *param)
 {
 	(void)param;
 	exit(EXIT_SUCCESS);
@@ -56,13 +56,18 @@ static void	sf_motion(int keycode, t_data *d)
 		d->pos.y++;
 	else if (keycode == 126)
 		d->pos.y--;
-	d->fract->x1 = d->zoom * -1.0 + ((float)(d->pos.x / d->zoom) * (d->zoom / 10.0));
-	d->fract->x2 = d->zoom * 1.0 + ((float)(d->pos.x / d->zoom) * (d->zoom / 10.0));
-	d->fract->y1 = d->zoom * -1.2 + ((float)d->pos.y * (d->zoom / 10.0));
-	d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y * (d->zoom / 10.0));
+	d->fract->x1 = d->zoom * -1.0 + ((float)(d->pos.x / d->zoom) *\
+	(d->zoom / 10.0));
+	d->fract->x2 = d->zoom * 1.0 + ((float)(d->pos.x / d->zoom) *\
+	(d->zoom / 10.0));
+	d->fract->y1 = d->zoom * -1.2 + ((float)(d->pos.y / d->zoom) *\
+	(d->zoom / 10.0));
+	d->fract->y2 = d->zoom * 1.2 + ((float)(d->pos.y / d->zoom) *\
+	(d->zoom / 10.0));
 	d->draw((void *)d);
 }
-int		event(int keycode, void *param)
+
+int			event(int keycode, void *param)
 {
 	t_data	*d;
 
@@ -70,13 +75,13 @@ int		event(int keycode, void *param)
 	if (keycode == 53)
 		exit_fractol(NULL);
 	else if (keycode == 49)
-	{
-		ft_putendl("julia motion event changed !");
 		d->fract->motion = !d->fract->motion;
-	}
 	else if (keycode >= 123 && keycode <= 126)
 		sf_motion(keycode, d);
 	else if (keycode == 78 || keycode == 69)
+	{
 		zoom(d, (keycode == 69), 0);
+		d->draw(param);
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 14:35:27 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 06:23:31 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/18 03:50:40 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	julia(void)
 	d->fract->c_i = 0.01;
 	mlx_hook(d->win, 6, (1L << 6), &mouse_motion, (void *)d);
 	d->draw = &exp_julia;
-	zoom(d, 1);
+	zoom(d, 1, 0);
 	mlx_expose_hook(d->win, &exp_julia, (void *)d);
 	mlx_mouse_hook(d->win, &hook_mouse, (void *)d);
 	mlx_loop(d->mlx);
