@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:13:49 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 06:24:52 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/18 03:17:16 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void			line(t_v2 src, t_v2 dst, t_data *data, int c);
 int				event(int keycode, void *param);
 int				hook_mouse(int btn, int x, int y, void *p);
 int				mouse_motion(int x, int y, void *p);
-int				zoom(t_data *d, int st);
+int				zoom(t_data *d, int st, int t);
 
 int				mandel(void);
 void			*mandelth(void *p);

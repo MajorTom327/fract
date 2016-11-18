@@ -6,7 +6,7 @@
 /*   By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/09 15:29:09 by vthomas           #+#    #+#             */
-/*   Updated: 2016/11/17 06:08:54 by vthomas          ###   ########.fr       */
+/*   Updated: 2016/11/18 03:17:03 by vthomas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static void	sf_motion(int keycode, t_data *d)
 		d->pos.y++;
 	else if (keycode == 126)
 		d->pos.y--;
-	d->fract->x1 = d->zoom * -1.0 + ((float)d->pos.x * (d->zoom / 10.0));
-	d->fract->x2 = d->zoom * 1.0 + ((float)d->pos.x * (d->zoom / 10.0));
+	d->fract->x1 = d->zoom * -1.0 + ((float)(d->pos.x / d->zoom) * (d->zoom / 10.0));
+	d->fract->x2 = d->zoom * 1.0 + ((float)(d->pos.x / d->zoom) * (d->zoom / 10.0));
 	d->fract->y1 = d->zoom * -1.2 + ((float)d->pos.y * (d->zoom / 10.0));
 	d->fract->y2 = d->zoom * 1.2 + ((float)d->pos.y * (d->zoom / 10.0));
 	d->draw((void *)d);
@@ -77,6 +77,6 @@ int		event(int keycode, void *param)
 	else if (keycode >= 123 && keycode <= 126)
 		sf_motion(keycode, d);
 	else if (keycode == 78 || keycode == 69)
-		zoom(d, (keycode == 69));
+		zoom(d, (keycode == 69), 0);
 	return (0);
 }
