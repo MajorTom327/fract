@@ -6,13 +6,13 @@
 #    By: vthomas <vthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 14:25:33 by vthomas           #+#    #+#              #
-#    Updated: 2016/11/17 01:08:55 by vthomas          ###   ########.fr        #
+#    Updated: 2016/11/19 10:58:52 by vthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fractol
 CC = clang
-CFLAGS = -Wall -Wextra -g -Os -Ofast
+CFLAGS = -Wall -Wextra -Werror -Os -Ofast
 
 DBG_OUT = /dev/ttys001
 
